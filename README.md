@@ -8,10 +8,10 @@ A Javascript project to manipulate DOM elements based on arrays and objects.
 You can try the website by clicking [here](https://reshyresh.github.io/Awesome-Books-JS-Project/)
 # Authors
 **Robert Baiesita**
-  - Github : @ReshyResh
+  - Github : [@ReshyResh](https://github.com/ReshyResh/)
 
 **Mina Anwar**
-  - Github : @coldatlas 
+  - Github : [@coldatlas](https://github.com/coldatlas) 
 # 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
