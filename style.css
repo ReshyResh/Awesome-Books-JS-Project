@@ -1,5 +1,11 @@
 #books-form {
-    display: flex;
-    flex-flow: column;
-    width: 10%;
-  }
+  display: flex;
+  flex-flow: column;
+  width: 10%;
+}
+
+hr {
+  width: 20%;
+  position: relative;
+  margin-left: 0;
+}
