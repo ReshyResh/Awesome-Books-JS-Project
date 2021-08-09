@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: 0 */
+/* eslint no-unused-vars: 0 no-undef: 0 */
 let id = 0;
 const books = [];
 if (localStorage.getItem('storage')) {
@@ -15,7 +15,7 @@ setTimeout(() => {
   count.id = 'counter';
   box.appendChild(count);
 }, 1);
-function add() {
+add = () => {
   const form = document.getElementById('books-form');
   const title = form.title.value;
   const author = form.author.value;
@@ -36,9 +36,9 @@ function add() {
   } else {
     alert('Please make sure to fill all fields!');
   }
-}
+};
 
-function remove(n) {
+remove = (n) => {
   books.splice(n, 1);
   const toremove = document.getElementById(n);
   const box = document.getElementById('books');
@@ -51,9 +51,9 @@ function remove(n) {
   box.removeChild(toremove);
   document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
   id -= 1;
-}
+};
 
-function store() {
+store = () => {
   const box = document.getElementById('books');
   const children = box.getElementsByTagName('div');
   if (children.length === 0) {
@@ -61,9 +61,9 @@ function store() {
   }
   localStorage.setItem('storage', JSON.stringify(books));
   localStorage.setItem('storage2', id);
-}
+};
 
-function populate() {
+populate = () => {
   if (localStorage.getItem('storage')) {
     const items = localStorage.getItem('storage');
     const parsed = JSON.parse(items);
@@ -76,7 +76,7 @@ function populate() {
     }
   }
   document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
-}
+};
 
 window.onload = setTimeout(() => {
   populate();
