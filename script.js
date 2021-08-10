@@ -1,3 +1,39 @@
+/* eslint no-unused-vars: 0 no-undef: 0 */
+let id = 0;
+const books = [];
+const box = document.getElementById('books');
+const form = document.getElementById('books-form');
+document.addEventListener("DOMContentLoaded", function(event) {
+  const box = document.getElementById('books');
+  const count = document.createElement('h2');
+  count.id = 'counter';
+  box.appendChild(count);
+  if (localStorage.getItem('storage')) {
+    const items = localStorage.getItem('storage');
+    const parsed = JSON.parse(items);
+    id = 0;
+    for (let i = 0; i < parsed.length; i += 1) {
+      const book = new Book(i,parsed[i].title,parsed[i].author);
+      parsed[i].id = i;
+      book.add();
+      books.push(parsed[i]);
+      id += 1;
+    }
+    id = parsed.length;
+    document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
+  }
+  document.getElementById('sub').addEventListener('click', (e) => {
+    const title = form.title.value;
+    const author = form.author.value;
+    const book = new Book(id,title,author);
+    book.add();
+    books.push(book);
+    localStorage.setItem('storage', JSON.stringify(books));
+    localStorage.setItem('storage2', id);
+    id += 1;
+    document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
+  });
+});
 class Book {
   constructor(id,title,author){
     this.id = id;
@@ -11,6 +47,7 @@ class Book {
     box.appendChild(bookdiv);
     const children = box.getElementsByTagName('div');
     };
+
   delete(id){
     books.splice(id, 1);
     const toremove = document.getElementById(id);
