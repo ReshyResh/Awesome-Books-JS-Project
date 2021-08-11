@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Comic Neue', cursive;
+}
+
 #books-form {
   display: flex;
   flex-flow: column;
@@ -8,4 +16,57 @@ hr {
   width: 20%;
   position: relative;
   margin-left: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+body {
+  font-size: 20px;
+}
+
+button {
+  background-color: #d3d9eb;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  padding: 8px;
+  float: right;
+  
+}
+
+#books {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border: 1px solid rgb(0, 0, 0);
+  border-width: 8px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+#books-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-left: 33%;
+
+  min-width: 350px;
+}
+
+input {
+  display: block;
+  min-width: 300px;
+  padding: 12px;
+  border: 2px solid rgb(0, 0, 0);
+  border-width: 8px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+#sub {
+  width: 60px;
+  align-self: flex-end;
 }
