@@ -1,27 +1,31 @@
 /* eslint no-unused-vars: 0 class-methods-use-this: 0 */
 let id = 0;
+let counter = 0;
 const books = [];
 const box = document.getElementById('books');
 const form = document.getElementById('books-form');
+const children = box.getElementsByTagName('div');
 class Book {
   constructor(id, title, author) {
     this.id = id;
     this.title = title;
     this.author = author;
   }
-
-  add() {
+  add(book) {
     const bookdiv = document.createElement('div');
     bookdiv.id = this.id;
-    bookdiv.innerHTML = `<p>${this.title}</p><p>${this.author}</p><button type="button" onclick="new Book().delete(${this.id})"">Remove</button><hr>`;
+    bookdiv.classList.add('book');
+    bookdiv.innerHTML = `<p>"${this.title}" by ${this.author}</p><button type="button"  class="rem" onclick="new Book().delete(${this.id})">Remove</button>`;
     box.appendChild(bookdiv);
     const children = box.getElementsByTagName('div');
+    form.title.value = '';
+    form.author.value = '';
+    books.push(book);
+    checkcolour(id);
   }
-
   delete(id) {
     books.splice(id, 1);
     const toremove = document.getElementById(id);
-    const children = box.getElementsByTagName('div');
     for (let i = id; i < children.length; i += 1) {
       const button = children[i].getElementsByTagName('button');
       button[0].setAttribute('onclick', `new Book().delete(${children[i].id - 1})`);
@@ -30,6 +34,7 @@ class Book {
     for (let j = id; j < books.length; j += 1) {
       books[j].id -= 1;
     }
+    checkcolour(id);
     box.removeChild(toremove);
     document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
     id -= 1;
@@ -37,7 +42,6 @@ class Book {
     localStorage.setItem('storage2', id);
   }
 }
-
 document.addEventListener('DOMContentLoaded', (event) => {
   const box = document.getElementById('books');
   const count = document.createElement('h2');
@@ -50,8 +54,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     for (let i = 0; i < parsed.length; i += 1) {
       const book = new Book(i, parsed[i].title, parsed[i].author);
       parsed[i].id = i;
-      book.add();
-      books.push(parsed[i]);
+      book.add(book);
       id += 1;
     }
     id = parsed.length;
@@ -61,11 +64,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const title = form.title.value;
     const author = form.author.value;
     const book = new Book(id, title, author);
-    book.add();
-    books.push(book);
-    localStorage.setItem('storage', JSON.stringify(books));
-    localStorage.setItem('storage2', id);
-    id += 1;
-    document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
+    if (title == '' || author == '') {
+      error('Please fill all fields','red');
+    }
+    else {
+      book.add(book);
+      localStorage.setItem('storage', JSON.stringify(books));
+      localStorage.setItem('storage2', id);
+      id += 1;
+      document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
+    }
   });
 });
+
+checkcolour = (n) => {
+  console.log(id);
+  console.log(n);
+  if (n %2 == 0 ) {
+    children[n].classList.toggle('dark');
+    if(children[n+1]){
+    children[n+1].classList.remove('dark');
+    }
+  }
+  else {
+    children[n].classList.remove('dark');
+  }
+}
