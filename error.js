@@ -1,5 +1,4 @@
-/* eslint no-unused-vars: 0 */
-function error(message, color) {
+error = (message, color) => {
   const error = document.createElement('aside');
   const parent = document.querySelector('.add-section');
   error.textContent = message;
@@ -12,4 +11,4 @@ function error(message, color) {
   setTimeout(() => {
     parent.removeChild(document.getElementById('error-popup'));
   }, 3500);
-}
+};

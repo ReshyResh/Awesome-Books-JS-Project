@@ -1,6 +1,5 @@
 /* eslint no-unused-vars: 0 class-methods-use-this: 0 */
 let id = 0;
-let counter = 0;
 const books = [];
 const box = document.getElementById('books');
 const form = document.getElementById('books-form');
@@ -11,6 +10,7 @@ class Book {
     this.title = title;
     this.author = author;
   }
+
   add(book) {
     const bookdiv = document.createElement('div');
     bookdiv.id = this.id;
@@ -21,8 +21,8 @@ class Book {
     form.title.value = '';
     form.author.value = '';
     books.push(book);
-    checkcolour(id);
   }
+
   delete(id) {
     books.splice(id, 1);
     const toremove = document.getElementById(id);
@@ -34,7 +34,6 @@ class Book {
     for (let j = id; j < books.length; j += 1) {
       books[j].id -= 1;
     }
-    checkcolour(id);
     box.removeChild(toremove);
     document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
     id -= 1;
@@ -64,10 +63,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const title = form.title.value;
     const author = form.author.value;
     const book = new Book(id, title, author);
-    if (title == '' || author == '') {
-      error('Please fill all fields','red');
-    }
-    else {
+    if (title === '' || author === '') {
+      error('Please fill all fields', 'red');
+    } else {
       book.add(book);
       localStorage.setItem('storage', JSON.stringify(books));
       localStorage.setItem('storage2', id);
@@ -76,17 +74,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   });
 });
-
-checkcolour = (n) => {
-  console.log(id);
-  console.log(n);
-  if (n %2 == 0 ) {
-    children[n].classList.toggle('dark');
-    if(children[n+1]){
-    children[n+1].classList.remove('dark');
-    }
-  }
-  else {
-    children[n].classList.remove('dark');
-  }
-}

@@ -18,6 +18,10 @@ h1 {
   justify-content: space-between;
 }
 
+.book:nth-child(odd) {
+  background: grey;
+}
+
 #books-form {
   display: flex;
   flex-flow: column;
@@ -25,7 +29,7 @@ h1 {
   margin: auto;
 }
 
-#books-form>input {
+#books-form > input {
   margin-bottom: 20px;
   border: 4px solid black;
   height: 25px;
@@ -38,7 +42,7 @@ h1 {
 
 #sub {
   width: 100px;
-  margin: auto;
+  margin-left: auto;
   height: 30px;
   color: #000;
   background-color: #fff;
@@ -47,7 +51,6 @@ h1 {
   transition: all 0.3s ease 0s;
   outline: none;
   font-family: inherit;
-  font-weight:
 }
 
 .rem {
@@ -65,7 +68,8 @@ h1 {
   margin-right: 40px;
 }
 
-.rem:hover, #sub:hover {
+.rem:hover,
+#sub:hover {
   background: black;
   color: #fff;
 }
@@ -74,10 +78,6 @@ hr {
   width: 30%;
   height: 2px;
   background: black;
-}
-
-.dark {
-  background: grey;
 }
 
 .add-section {
@@ -97,7 +97,7 @@ hr {
 #error-popup {
   position: fixed;
   color: #fff;
-  font-size: 1em;
+  font-size: 1.5em;
   font-family: inherit;
   margin: auto;
   left: 0;
@@ -112,6 +112,7 @@ hr {
   text-align: center;
   line-height: 60px;
   z-index: 99;
+  box-shadow: 5px 6px 1px rgba(0, 0, 0);
 }
 
 .red {
