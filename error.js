@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */
 error = (message, color) => {
   const error = document.createElement('aside');
   const parent = document.querySelector('.add-section');

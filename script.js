@@ -1,4 +1,4 @@
-/* eslint no-unused-vars: 0 class-methods-use-this: 0 */
+/* eslint no-undef: 0 class-methods-use-this: 0 */
 let id = 0;
 const books = [];
 const box = document.getElementById('books');
@@ -17,7 +17,6 @@ class Book {
     bookdiv.classList.add('book');
     bookdiv.innerHTML = `<p>"${this.title}" by ${this.author}</p><button type="button"  class="rem" onclick="new Book().delete(${this.id})">Remove</button>`;
     box.appendChild(bookdiv);
-    const children = box.getElementsByTagName('div');
     form.title.value = '';
     form.author.value = '';
     books.push(book);
@@ -41,7 +40,7 @@ class Book {
     localStorage.setItem('storage2', id);
   }
 }
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
   const box = document.getElementById('books');
   const count = document.createElement('h2');
   count.id = 'counter';
@@ -59,7 +58,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     id = parsed.length;
     document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
   }
-  document.getElementById('sub').addEventListener('click', (e) => {
+  document.getElementById('sub').addEventListener('click', () => {
     const title = form.title.value;
     const author = form.author.value;
     const book = new Book(id, title, author);
