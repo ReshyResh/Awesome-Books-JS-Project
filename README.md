@@ -1,7 +1,8 @@
 # Awesome Books
 A Javascript project to manipulate DOM elements based on arrays and objects.
 
-![pJ9t1x7](https://user-images.githubusercontent.com/85108160/128719325-1cfdcef1-8ca5-475d-93fa-2331e77b45a7.png)
+![firefox_IxLDy6fUh9](https://user-images.githubusercontent.com/85108160/129023531-ab1f9138-b5a2-4ccf-b3e7-a9959138d0ef.png)
+
 # Built with
   - VSCode
 # Live demo
