@@ -5,26 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title> Awesome Books </title>
-
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-96YQZBVRNT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+            gtag('config', 'G-96YQZBVRNT');
+    </script>
   </head>
   <body>
-    <h1> All Awesome Books </h1>
-    <div id="books"></div>
-    <div class="add-section">
-    <hr>
-    <h2> Add a new book </h2>
-    <form id="books-form">
-      <input name="title" placeholder="Title">
-      <input name="author" placeholder="Author">
-      <button id="sub" type="button">Add</button>
-    </form>
-    </div>
-    <footer class="copyright">
-      <div> 
-          <p class="p-3"> Copyright &copy; 2021. Some Rights Reserved&trade;</p>
+    <nav id="nav-bar">
+      <a onclick="show(s1)"> Awesome Books</a>
+      <div class="far-right">
+        <a onclick="show(s1)">List |</a>
+        <a onclick="show(s2)">Add Book |</a>
+        <a onclick="show(s3)">Contact</a>
+        <br>
+        <div id="date"></div>
       </div>
-  </footer>
-    <script src="script.js"></script>
-    <script src="error.js"></script>
+    </nav>
+
+    <section id="s1" class="visible">
+      <h1> All Awesome Books </h1>
+      <div id="books"></div>
+
+    </section>
+    <section id="s2" class="invisible">
+      <div class="add-section">
+      <h1> Add a new book </h1>
+      <form id="books-form">
+        <input name="title" placeholder="Title">
+        <input name="author" placeholder="Author">
+        <button id="sub" type="button">Add</button>
+      </form>
+      </div>
+    </section>
+
+    <section id="s3" class="invisible">
+      <h1> Contact Information </h1>
+      <div class="contact-info">
+        <p> Do you have any questions or just want to say "Hello"?<br>You can reach out to us!
+        <br><ul><li>Our e-mail: mail@mail.com</li><li>Our phone number: 0043586534422</li><li>Our address: Streetname 22, 84503 City, Country</li></ul>
+      </div>
+    </section>
+    <footer>
+      Copyright © 2021 Awesome Books INC.
+    </footer>
+    <script src="js/script.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/error.js"></script>
+    <script src="https://moment.github.io/luxon/global/luxon.js"></script>
   </body>
 </html>

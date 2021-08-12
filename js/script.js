@@ -23,8 +23,13 @@ class Book {
   }
 
   delete(id) {
+    document.body.style.overflowY = 'hidden';
     books.splice(id, 1);
     const toremove = document.getElementById(id);
+    const cover = document.createElement('div');
+    cover.classList.add('cover');
+    cover.setAttribute('onclick', 'error(\'Please wait!\',\'red\')');
+    document.body.appendChild(cover);
     for (let i = id; i < children.length; i += 1) {
       const button = children[i].getElementsByTagName('button');
       button[0].setAttribute('onclick', `new Book().delete(${children[i].id - 1})`);
@@ -33,11 +38,30 @@ class Book {
     for (let j = id; j < books.length; j += 1) {
       books[j].id -= 1;
     }
-    box.removeChild(toremove);
-    document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
     id -= 1;
     localStorage.setItem('storage', JSON.stringify(books));
     localStorage.setItem('storage2', id);
+    const bin = document.createElement('aside');
+    bin.id = 'bin';
+    document.body.appendChild(bin);
+    toremove.classList.add('trash-1');
+    setTimeout(() => {
+      bin.classList.add('bin-1');
+    }, 300);
+    setTimeout(() => {
+      toremove.classList.add('trash-2');
+    }, 700);
+    setTimeout(() => {
+      box.removeChild(toremove);
+
+      bin.classList.remove('bin-1');
+      document.body.removeChild(cover);
+      document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
+    }, 1500);
+    setTimeout(() => {
+      document.body.removeChild(bin);
+      document.body.style.overflowY = 'auto';
+    }, 2500);
   }
 }
 document.addEventListener('DOMContentLoaded', () => {
@@ -70,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('storage2', id);
       id += 1;
       document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
+      error('Book added succesfully!', 'green');
     }
   });
 });

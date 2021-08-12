@@ -1,5 +1,7 @@
 body {
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+  overflow-x: hidden;
+  margin: 5px;
 }
 
 h1 {
@@ -16,6 +18,10 @@ h1 {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  transition: all 1.5s;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 
 .book:nth-child(odd) {
@@ -86,7 +92,6 @@ hr {
   margin: auto;
   width: 50vw;
   text-align: center;
-  margin-top: 30px;
 }
 
 .fade {
@@ -102,7 +107,7 @@ hr {
   margin: auto;
   left: 0;
   right: 0;
-  margin-top: 20px;
+  margin-top: 250px;
   width: 400px;
   height: 60px;
   visibility: visible;
@@ -119,10 +124,118 @@ hr {
   background: red;
 }
 
-footer {
-  background-color: #4169e1;
-  color: #fff;
-  bottom: 0;
-  position: fixed;
+#nav-bar {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  font-size: 1.5em;
+  border: 5px solid black;
+}
+
+.far-right > a,
+#nav-bar > a {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#date {
+  margin-top: 20px;
+  font-size: 0.8em;
+}
+
+#s1,
+#s2,
+#s3 {
+  transition: all 1.5s;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
   width: 100%;
+  margin: auto;
+  position: absolute;
+}
+
+.invisible {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  transform: translateX(-2000px);
+  width: 100%;
+  margin: auto;
+}
+
+#s3 > h1 {
+  font-size: 2em;
+}
+
+.green {
+  background: green;
+}
+
+.contact-info {
+  margin: auto;
+  margin-top: 50px;
+  font-size: 1.5em;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 1px;
+  left: 5px;
+  height: 50px;
+  width: 99%;
+  border: 5px solid black;
+  z-index: 2;
+  background: #fff;
+}
+
+.trash-1 {
+  transform: rotate(110deg) scale(0.9);
+  width: 50%;
+  margin: auto;
+  z-index: 1000;
+}
+
+.trash-2 {
+  transform: translateY(2000px) rotate(90deg) scale(0.9);
+  overflow-y: hidden;
+}
+
+#bin {
+  width: 100%;
+  height: 400px;
+  position: fixed;
+  bottom: 0;
+  background-image: url('img/bin.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 99;
+  transform: translateY(500px);
+  left: 30%;
+  transition: all 0.4s;
+  overflow-y: hidden;
+}
+
+.bin-1 {
+  transform: translateY(200px) !important;
+}
+
+.cover {
+  width: 100%;
+  height: 90vh;
+  position: absolute;
+  z-index: 100;
+}
+
+@media only screen and (min-width: 1100px) {
+  #bin {
+    left: 40%;
+  }
 }
