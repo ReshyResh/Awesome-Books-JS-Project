@@ -118,3 +118,11 @@ hr {
 .red {
   background: red;
 }
+
+footer {
+  background-color: #4169e1;
+  color: #fff;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
