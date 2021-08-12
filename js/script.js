@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
       id += 1;
     }
     id = parsed.length;
-    document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
   }
+  document.getElementById('counter').innerHTML = `Total number of books:${books.length}`;
   document.getElementById('sub').addEventListener('click', () => {
     const title = form.title.value;
     const author = form.author.value;
