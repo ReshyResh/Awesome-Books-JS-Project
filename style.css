@@ -127,6 +127,7 @@ hr {
 #nav-bar {
   display: flex;
   flex-flow: row;
+  height: 40px;
   justify-content: space-around;
   font-size: 1.5em;
   border: 5px solid black;
